@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bug Reports | Vamshi Krishna Dasari</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #7dd3fc;
+        }
+
+        .header {
+            margin-bottom: 35px;
+        }
+
+        .header-label {
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .header h1 {
+            color: #f8fafc;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #94a3b8;
+            max-width: 750px;
+        }
+
+        .bug-card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .bug-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 25px;
+            background: #172033;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .bug-id {
+            color: #38bdf8;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .bug-title {
+            color: #f8fafc;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .status {
+            color: #22c55e;
+            border: 1px solid #22c55e;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .bug-content {
+            padding: 25px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .detail-box {
+            background: #0b1120;
+            border: 1px solid #1e293b;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .detail-box span {
+            display: block;
+            color: #64748b;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .detail-box strong {
+            color: #e5e7eb;
+            font-size: 14px;
+        }
+
+        .section {
+            margin-top: 22px;
+        }
+
+        .section h3 {
+            color: #7dd3fc;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .section p,
+        .section li {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .section ol {
+            padding-left: 20px;
+        }
+
+        .note {
+            margin-top: 30px;
+            padding: 18px;
+            background: #111827;
+            border-left: 3px solid #38bdf8;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 25px 15px;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .bug-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="../../index.html" class="back-link">
+        ← Back to Portfolio
+    </a>
+
+    <div class="header">
+        <div class="header-label">QA WORK SAMPLE</div>
+
+        <h1>Bug Reports</h1>
+
+        <p class="description">
+            Sample JIRA-style defect reports demonstrating clear defect
+            documentation, reproduction steps, expected and actual results,
+            severity and priority classification.
+        </p>
+    </div>
+
+
+    <!-- BUG 01 -->
+
+    <div class="bug-card">
+
+        <div class="bug-header">
+
+            <div>
+                <div class="bug-id">BUG-001</div>
+
+                <div class="bug-title">
+                    Login button remains enabled when mandatory fields are empty
+                </div>
+            </div>
+
+            <div class="status">
+                OPEN
+            </div>
+
+        </div>
+
+        <div class="bug-content">
+
+            <div class="details">
+
+                <div class="detail-box">
+                    <span>MODULE</span>
+                    <strong>Login</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>SEVERITY</span>
+                    <strong>Medium</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>PRIORITY</span>
+                    <strong>Medium</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>ENVIRONMENT</span>
+                    <strong>Web Application</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>TEST TYPE</span>
+                    <strong>Functional</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>STATUS</span>
+                    <strong>Open</strong>
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Preconditions</h3>
+
+                <p>
+                    User is on the application login page.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Steps to Reproduce</h3>
+
+                <ol>
+                    <li>Open the login page.</li>
+                    <li>Leave the username field empty.</li>
+                    <li>Leave the password field empty.</li>
+                    <li>Observe the Login button.</li>
+                </ol>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Expected Result</h3>
+
+                <p>
+                    The Login button should remain disabled or appropriate
+                    validation should be displayed before submitting the form.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Actual Result</h3>
+
+                <p>
+                    The Login button remains enabled even when both mandatory
+                    fields are empty.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUG 02 -->
+
+    <div class="bug-card">
+
+        <div class="bug-header">
+
+            <div>
+                <div class="bug-id">BUG-002</div>
+
+                <div class="bug-title">
+                    Password field does not mask entered characters
+                </div>
+            </div>
+
+            <div class="status">
+                OPEN
+            </div>
+
+        </div>
+
+        <div class="bug-content">
+
+            <div class="details">
+
+                <div class="detail-box">
+                    <span>MODULE</span>
+                    <strong>Login</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>SEVERITY</span>
+                    <strong>High</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>PRIORITY</span>
+                    <strong>High</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>ENVIRONMENT</span>
+                    <strong>Web Application</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>TEST TYPE</span>
+                    <strong>UI / Security</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>STATUS</span>
+                    <strong>Open</strong>
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Preconditions</h3>
+
+                <p>
+                    User is on the application login page.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Steps to Reproduce</h3>
+
+                <ol>
+                    <li>Open the login page.</li>
+                    <li>Click inside the Password field.</li>
+                    <li>Enter a password.</li>
+                    <li>Observe the entered characters.</li>
+                </ol>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Expected Result</h3>
+
+                <p>
+                    Password characters should be masked using dots or
+                    asterisks.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Actual Result</h3>
+
+                <p>
+                    Password characters are displayed as plain text.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUG 03 -->
+
+    <div class="bug-card">
+
+        <div class="bug-header">
+
+            <div>
+                <div class="bug-id">BUG-003</div>
+
+                <div class="bug-title">
+                    Error message is not displayed for invalid login credentials
+                </div>
+            </div>
+
+            <div class="status">
+                OPEN
+            </div>
+
+        </div>
+
+        <div class="bug-content">
+
+            <div class="details">
+
+                <div class="detail-box">
+                    <span>MODULE</span>
+                    <strong>Login</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>SEVERITY</span>
+                    <strong>Medium</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>PRIORITY</span>
+                    <strong>High</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>ENVIRONMENT</span>
+                    <strong>Web Application</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>TEST TYPE</span>
+                    <strong>Functional</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>STATUS</span>
+                    <strong>Open</strong>
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Preconditions</h3>
+
+                <p>
+                    User has access to the login page.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Steps to Reproduce</h3>
+
+                <ol>
+                    <li>Open the login page.</li>
+                    <li>Enter a valid username.</li>
+                    <li>Enter an incorrect password.</li>
+                    <li>Click Login.</li>
+                </ol>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Expected Result</h3>
+
+                <p>
+                    A clear and appropriate error message should inform
+                    the user that the credentials are invalid.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Actual Result</h3>
+
+                <p>
+                    The login attempt fails, but no meaningful error
+                    message is displayed to the user.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="note">
+
+        <strong>Portfolio Note:</strong>
+        These are fictional demonstration defects created for portfolio
+        purposes. They do not represent confidential defects, applications,
+        or data from previous employers.
+
+    </div>
+
+</div>
+
+</body>
+</html>

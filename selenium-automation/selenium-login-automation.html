@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Selenium Automation | Vamshi Krishna Dasari</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 35px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #7dd3fc;
+        }
+
+        .header {
+            margin-bottom: 45px;
+        }
+
+        .label {
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #f8fafc;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            max-width: 750px;
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #f8fafc;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tags span {
+            background: #1e293b;
+            color: #7dd3fc;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .scenario {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .scenario:last-child {
+            border-bottom: none;
+        }
+
+        .scenario-number {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .scenario strong {
+            color: #f8fafc;
+        }
+
+        pre {
+            background: #020617;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .result-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .result {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .result-label {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .note {
+            border-left: 3px solid #38bdf8;
+            padding: 15px 20px;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            padding: 30px 0;
+        }
+
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .result-box {
+                grid-template-columns: 1fr;
+            }
+
+            .scenario {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a href="../../index.html" class="back-link">
+            ← Back to Portfolio
+        </a>
+
+        <div class="header">
+            <div class="label">QA AUTOMATION</div>
+
+            <h1>Selenium Automation Testing</h1>
+
+            <p class="intro">
+                A sample automation testing workflow demonstrating
+                Selenium WebDriver with Java, TestNG and Page Object Model
+                for validating a login functionality.
+            </p>
+        </div>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <div class="card">
+
+            <h2>Tools & Technologies</h2>
+
+            <div class="tags">
+                <span>Selenium WebDriver</span>
+                <span>Java</span>
+                <span>TestNG</span>
+                <span>Maven</span>
+                <span>Page Object Model</span>
+                <span>Automation Testing</span>
+            </div>
+
+        </div>
+
+
+        <!-- TEST SCENARIO -->
+
+        <div class="card">
+
+            <h2>Test Scenario</h2>
+
+            <p>
+                Automate the login functionality of a web application
+                and verify that users can successfully log in using
+                valid credentials.
+            </p>
+
+            <div class="scenario">
+
+                <div class="scenario-number">01</div>
+
+                <div>
+                    <strong>Launch Application</strong>
+                    <p>Open the application login page using Selenium WebDriver.</p>
+                </div>
+
+            </div>
+
+            <div class="scenario">
+
+                <div class="scenario-number">02</div>
+
+                <div>
+                    <strong>Enter Username</strong>
+                    <p>Locate the username field and enter valid test data.</p>
+                </div>
+
+            </div>
+
+            <div class="scenario">
+
+                <div class="scenario-number">03</div>
+
+                <div>
+                    <strong>Enter Password</strong>
+                    <p>Locate the password field and enter the valid password.</p>
+                </div>
+
+            </div>
+
+            <div class="scenario">
+
+                <div class="scenario-number">04</div>
+
+                <div>
+                    <strong>Click Login</strong>
+                    <p>Click the login button and wait for the application response.</p>
+                </div>
+
+            </div>
+
+            <div class="scenario">
+
+                <div class="scenario-number">05</div>
+
+                <div>
+                    <strong>Verify Result</strong>
+                    <p>Validate the expected page or successful login message.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- POM STRUCTURE -->
+
+        <div class="card">
+
+            <h2>Page Object Model Structure</h2>
+
+            <p>
+                The Page Object Model helps separate page elements and
+                actions from the test logic, making automation code
+                easier to maintain and reuse.
+            </p>
+
+<pre>
+src
+ └── test
+      └── java
+           ├── pages
+           │    └── LoginPage.java
+           │
+           └── tests
+                └── LoginTest.java
+</pre>
+
+        </div>
+
+
+        <!-- LOGIN PAGE -->
+
+        <div class="card">
+
+            <h2>LoginPage.java</h2>
+
+            <p>
+                Sample Page Object containing locators and reusable
+                login actions.
+            </p>
+
+<pre>
+public class LoginPage {
+
+    WebDriver driver;
+
+    By username =
+        By.id("username");
+
+    By password =
+        By.id("password");
+
+    By loginButton =
+        By.id("login");
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void enterUsername(String user) {
+        driver.findElement(username)
+              .sendKeys(user);
+    }
+
+    public void enterPassword(String pass) {
+        driver.findElement(password)
+              .sendKeys(pass);
+    }
+
+    public void clickLogin() {
+        driver.findElement(loginButton)
+              .click();
+    }
+}
+</pre>
+
+        </div>
+
+
+        <!-- TESTNG -->
+
+        <div class="card">
+
+            <h2>LoginTest.java</h2>
+
+            <p>
+                TestNG is used to organize and execute the automation
+                test case.
+            </p>
+
+<pre>
+public class LoginTest {
+
+    WebDriver driver;
+    LoginPage loginPage;
+
+    @BeforeMethod
+    public void setUp() {
+
+        driver = new ChromeDriver();
+
+        driver.get(
+            "https://example.com/login"
+        );
+
+        loginPage =
+            new LoginPage(driver);
+    }
+
+    @Test
+    public void validLoginTest() {
+
+        loginPage.enterUsername("testuser");
+
+        loginPage.enterPassword("password123");
+
+        loginPage.clickLogin();
+
+        // Validate successful login
+    }
+
+    @AfterMethod
+    public void tearDown() {
+
+        driver.quit();
+    }
+}
+</pre>
+
+        </div>
+
+
+        <!-- AUTOMATION FLOW -->
+
+        <div class="card">
+
+            <h2>Automation Flow</h2>
+
+<pre>
+TestNG
+   ↓
+LoginTest
+   ↓
+LoginPage
+   ↓
+Selenium WebDriver
+   ↓
+Chrome Browser
+   ↓
+Application
+   ↓
+Validation
+</pre>
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div class="card">
+
+            <h2>Sample Execution Result</h2>
+
+            <div class="result-box">
+
+                <div class="result">
+                    <div class="result-number">5</div>
+                    <div class="result-label">Test Cases</div>
+                </div>
+
+                <div class="result">
+                    <div class="result-number">5</div>
+                    <div class="result-label">Passed</div>
+                </div>
+
+                <div class="result">
+                    <div class="result-number">0</div>
+                    <div class="result-label">Failed</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOTE -->
+
+        <div class="card">
+
+            <div class="note">
+                <strong>Portfolio Note:</strong>
+                This is a demonstration sample created for portfolio
+                purposes. The application, credentials and test data
+                shown here are fictional and do not contain confidential
+                employer information.
+            </div>
+
+        </div>
+
+
+        <footer>
+            Vamshi Krishna Dasari | QA Engineer
+        </footer>
+
+    </div>
+
+</body>
+</html>

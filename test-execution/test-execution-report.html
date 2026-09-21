@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test Execution Report | Vamshi Krishna Dasari</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 35px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #7dd3fc;
+        }
+
+        .header {
+            margin-bottom: 45px;
+        }
+
+        .label {
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #f8fafc;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            max-width: 760px;
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #f8fafc;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .summary-box {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .summary-label {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th {
+            background: #0f172a;
+            color: #7dd3fc;
+            text-align: left;
+            padding: 14px;
+            font-size: 13px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        td {
+            padding: 14px;
+            color: #cbd5e1;
+            font-size: 13px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .passed {
+            background: #052e16;
+            color: #86efac;
+        }
+
+        .failed {
+            background: #450a0a;
+            color: #fca5a5;
+        }
+
+        .blocked {
+            background: #422006;
+            color: #fdba74;
+        }
+
+        .defect-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .defect {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 7px;
+            padding: 15px;
+        }
+
+        .defect strong {
+            color: #f8fafc;
+        }
+
+        .defect span {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .coverage {
+            margin-top: 20px;
+        }
+
+        .coverage-row {
+            margin-bottom: 18px;
+        }
+
+        .coverage-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        .progress {
+            height: 8px;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #38bdf8;
+            border-radius: 10px;
+        }
+
+        .signoff {
+            border-left: 3px solid #38bdf8;
+            padding: 18px 20px;
+            background: #0f172a;
+            color: #94a3b8;
+        }
+
+        .signoff strong {
+            color: #f8fafc;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tags span {
+            background: #1e293b;
+            color: #7dd3fc;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            padding: 30px 0;
+        }
+
+        @media (max-width: 800px) {
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="../../index.html" class="back-link">
+        ← Back to Portfolio
+    </a>
+
+    <div class="header">
+        <div class="label">QA EXECUTION</div>
+
+        <h1>Test Execution & Reporting</h1>
+
+        <p class="intro">
+            A sample QA test execution report demonstrating test case
+            execution, pass/fail tracking, defect reporting, regression
+            coverage and overall test status.
+        </p>
+    </div>
+
+
+    <!-- EXECUTION SUMMARY -->
+
+    <div class="card">
+
+        <h2>Execution Summary</h2>
+
+        <div class="summary-grid">
+
+            <div class="summary-box">
+                <div class="summary-number">20</div>
+                <div class="summary-label">Total Test Cases</div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-number">17</div>
+                <div class="summary-label">Passed</div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-number">2</div>
+                <div class="summary-label">Failed</div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-number">1</div>
+                <div class="summary-label">Blocked</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TEST EXECUTION -->
+
+    <div class="card">
+
+        <h2>Test Case Execution</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Test Case ID</th>
+                        <th>Scenario</th>
+                        <th>Test Type</th>
+                        <th>Expected Result</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>TC_EXEC_001</td>
+                        <td>Valid Login</td>
+                        <td>Functional</td>
+                        <td>User should login successfully</td>
+                        <td>
+                            <span class="status passed">PASS</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_002</td>
+                        <td>Invalid Password</td>
+                        <td>Negative</td>
+                        <td>Error message should be displayed</td>
+                        <td>
+                            <span class="status passed">PASS</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_003</td>
+                        <td>Empty Username</td>
+                        <td>Validation</td>
+                        <td>Username validation should appear</td>
+                        <td>
+                            <span class="status passed">PASS</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_004</td>
+                        <td>Password Masking</td>
+                        <td>UI</td>
+                        <td>Password should be masked</td>
+                        <td>
+                            <span class="status failed">FAIL</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_005</td>
+                        <td>Logout</td>
+                        <td>Functional</td>
+                        <td>User should be logged out</td>
+                        <td>
+                            <span class="status passed">PASS</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_006</td>
+                        <td>Session Timeout</td>
+                        <td>Security</td>
+                        <td>User should be redirected to login</td>
+                        <td>
+                            <span class="status blocked">BLOCKED</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_007</td>
+                        <td>Login Button Validation</td>
+                        <td>Functional</td>
+                        <td>Button should behave correctly</td>
+                        <td>
+                            <span class="status failed">FAIL</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>TC_EXEC_008</td>
+                        <td>Forgot Password</td>
+                        <td>Functional</td>
+                        <td>Password recovery page should open</td>
+                        <td>
+                            <span class="status passed">PASS</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- DEFECT SUMMARY -->
+
+    <div class="card">
+
+        <h2>Defect Summary</h2>
+
+        <p>
+            Failed test cases were analyzed and corresponding defects
+            were documented for developer investigation and retesting.
+        </p>
+
+        <div class="defect-list">
+
+            <div class="defect">
+                <strong>BUG-EXEC-001</strong><br>
+                <span>
+                    Password characters are not masked in the password field.
+                    Severity: High | Priority: High
+                </span>
+            </div>
+
+            <div class="defect">
+                <strong>BUG-EXEC-002</strong><br>
+                <span>
+                    Login button remains enabled when mandatory fields are empty.
+                    Severity: Medium | Priority: Medium
+                </span>
+            </div>
+
+            <div class="defect">
+                <strong>BUG-EXEC-003</strong><br>
+                <span>
+                    Session timeout validation could not be completed because
+                    the required environment configuration was unavailable.
+                    Status: Blocked
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TEST COVERAGE -->
+
+    <div class="card">
+
+        <h2>Test Coverage</h2>
+
+        <p>
+            Sample coverage across the main testing areas included in
+            the execution cycle.
+        </p>
+
+        <div class="coverage">
+
+            <div class="coverage-row">
+
+                <div class="coverage-info">
+                    <span>Functional Testing</span>
+                    <span>95%</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 95%;"></div>
+                </div>
+
+            </div>
+
+
+            <div class="coverage-row">
+
+                <div class="coverage-info">
+                    <span>Regression Testing</span>
+                    <span>90%</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+
+            </div>
+
+
+            <div class="coverage-row">
+
+                <div class="coverage-info">
+                    <span>API Testing</span>
+                    <span>85%</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+
+            </div>
+
+
+            <div class="coverage-row">
+
+                <div class="coverage-info">
+                    <span>UI Validation</span>
+                    <span>90%</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TEST TYPES -->
+
+    <div class="card">
+
+        <h2>Testing Performed</h2>
+
+        <div class="tags">
+            <span>Functional Testing</span>
+            <span>Regression Testing</span>
+            <span>Smoke Testing</span>
+            <span>Sanity Testing</span>
+            <span>Negative Testing</span>
+            <span>UI Testing</span>
+            <span>API Testing</span>
+            <span>Defect Retesting</span>
+        </div>
+
+    </div>
+
+
+    <!-- SIGN OFF -->
+
+    <div class="card">
+
+        <div class="signoff">
+
+            <strong>QA Execution Summary</strong>
+
+            <p>
+                The sample execution demonstrates the process of
+                executing test cases, recording results, identifying
+                defects, tracking blocked scenarios and reviewing
+                overall test coverage before release.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="card">
+
+        <div class="signoff">
+
+            <strong>Portfolio Note:</strong>
+
+            <p>
+                This is a fictional demonstration created for portfolio
+                purposes. The test cases, execution results, defect IDs
+                and metrics shown here are sample data and do not contain
+                confidential employer information.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        Vamshi Krishna Dasari | QA Engineer
+    </footer>
+
+</div>
+
+</body>
+</html>
